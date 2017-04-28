@@ -36,13 +36,17 @@ class BandsController extends Controller
     public function store(Request $request)
     {
         $this->validate(request(), [
-            'name' => 'required|unique:bands'
+            'name' => 'required|unique:bands',
+            'genre_id' => 'required',
+            'country' => 'required|max:255'
         ]);
 
         $band = Band::create([
             'name' => request('name'),
             'slug' => str_slug(request('name')) . "-" . auth()->id(),
-            'owner_id' => auth()->id()
+            'owner_id' => auth()->id(),
+            'genre_id' => request('genre_id'),
+            'country' => request('country')
         ]);
     }
 

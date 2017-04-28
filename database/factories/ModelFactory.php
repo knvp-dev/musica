@@ -24,20 +24,42 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Band::class, function (Faker\Generator $faker) {
-    return [
-        'name' => $faker->name,
-        'slug' => str_slug($faker->name),
-        'owner_id' => function(){
-            return factory('App\User')->create()->id;
-        }
-    ];
-});
-
 $factory->define(App\Instrument::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'slug' => str_slug($faker->name)
+    ];
+});
+
+$factory->define(App\Genre::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->name,
+        'slug' => str_slug($faker->name)
+    ];
+});
+
+$factory->define(App\Album::class, function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->name,
+        'slug' => str_slug($faker->name),
+        'release_date' => $faker->date,
+        'band_id' => function(){
+            return factory('App\Band')->create()->id;
+        }
+    ];
+});
+
+$factory->define(App\Song::class, function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->name,
+        'slug' => str_slug($faker->name),
+        'duration' => 234,
+        'band_id' => function(){
+            return factory('App\Band')->create()->id;
+        },
+        'album_id' => function(){
+            return factory('App\Album')->create()->id;
+        }
     ];
 });
 
@@ -52,5 +74,19 @@ $factory->define(App\Bandmembership::class, function (Faker\Generator $faker) {
         'instrument_id' => function(){
             return factory('App\Instrument')->create()->id;
         }
+    ];
+});
+
+$factory->define(App\Band::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->name,
+        'slug' => str_slug($faker->name),
+        'owner_id' => function(){
+            return factory('App\User')->create()->id;
+        },
+        'genre_id' => function(){
+            return factory('App\Genre')->create()->id;
+        },
+        'country' => "USA"
     ];
 });

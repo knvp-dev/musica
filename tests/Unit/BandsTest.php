@@ -20,4 +20,25 @@ class BandsTest extends TestCase
 
     	$this->assertCount(1, $band->members);
     }
+
+    /** @test */
+    function a_band_has_a_genre(){
+    	$band = create('App\Band');
+    	$genre = \App\Genre::first();
+    	$this->assertEquals($genre, $band->genre);
+    }
+
+    /** @test */
+    function a_band_can_have_albums(){
+    	$band = create('App\Band');
+    	$album = create('App\Album', ['band_id' => $band->id]);
+    	$this->assertCount(1, $band->albums);
+    }
+
+    /** @test */
+    function a_band_can_have_songs(){
+    	$band = create('App\Band');
+    	$song = create('App\Song', ['band_id' => $band->id, 'album_id' => null]);
+    	$this->assertCount(1, $band->songs);
+    }
 }

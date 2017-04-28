@@ -24,4 +24,16 @@ class Band extends Model
     public function members(){
     	return $this->hasMany(Bandmembership::class);
     }
+
+    public function genre(){
+        return $this->hasOne(Genre::class, 'id');
+    }
+
+    public function albums(){
+        return $this->hasMany(Album::class);
+    }
+
+    public function songs(){
+        return $this->hasMany(Song::class);
+    }
 }

@@ -18,6 +18,8 @@ class CreateBandsTable extends Migration
             $table->string('name');
             $table->string('slug')->unique();
             $table->unsignedInteger('owner_id');
+            $table->unsignedInteger('genre_id');
+            $table->string('country');
             $table->timestamps();
         });
 
