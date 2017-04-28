@@ -1,0 +1,199 @@
+
+// Fonts
+@import url(https://fonts.googleapis.com/css?family=Montserrat:200,400);
+
+@import url(/images/icons/font/flaticon.css);
+
+// Variables
+@import "variables";
+
+// // Bootstrap
+// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+// Font Awesome
+@import "node_modules/font-awesome/css/font-awesome";
+
+// Bulma
+@import "node_modules/bulma/css/bulma";
+
+html, body{
+	height:100%;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.tabs li.is-active a {
+    border-bottom-color: #ff6161;
+    color: #ff6161;
+}
+
+.input{
+	border-radius:0;
+	box-shadow:none;
+}
+
+.input:focus, .input:active{
+	border-color:#fff;
+}
+
+.has-band-background{
+	background-image:url('/images/blurred.jpg');
+    background-size: cover;
+    background-position-y: 50%;
+}
+
+.button-red{
+	background-color:#ff6161;
+	color:white;	
+	border:1px solid #ff6161;
+	border-radius:0;
+}
+
+.is-left-half-round{
+	border-top-left-radius:45px!important;
+	border-bottom-left-radius:45px!important;
+}
+
+.is-right-half-round{
+	border-top-right-radius:45px!important;
+	border-bottom-right-radius:45px!important;
+	padding-right:50px;
+}
+
+.hero-body h1.title{
+	font-weight: 600;
+    text-transform: uppercase;
+    color: antiquewhite;
+}
+
+
+.button-red:hover{
+	color:white!important;
+	background-color:darken(#ff6161, 3%);
+	border-color:darken(#ff6161, 3%)
+}
+
+.nav-item a.is-tab:hover, a.nav-item.is-tab:hover{
+	border-bottom-color:none;
+	border:none;
+}
+
+.hero-form{
+	width:800px;
+	margin:0 auto;
+}
+
+.hero-form.input{
+	padding:20px;
+}
+
+.hero a{
+	color:#fff;
+}
+
+.medium-icon:before{
+	font-size:3em;
+	color:antiquewhite;
+	text-align:center;
+	padding: 10px;
+    margin-left: 0;
+}
+
+.flex-horizontal-center{
+	justify-content:center;
+}
+
+.mb-20{
+	margin-bottom:20px;
+}
+
+.pl-50{
+	padding-left:50px;
+}
+
+.is-small-icon{
+	font-size:.8em!important;
+}
+
+.adverts-list{
+	margin:0 auto;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+}
+
+.advert-list-item{
+	display:flex;
+	width:800px;
+	margin:20px;
+}
+
+.advert-left-section{
+	display: flex;
+	width:20%;
+	flex-direction: column;
+	justify-content:center;
+	padding-right:20px;
+	align-items: center;
+}
+
+.advert-right-section{
+	display: flex;
+	flex-direction: column;
+	border-left:1px solid #EEE;
+	padding-left:20px;
+}
+
+.advert-title{
+	color:#4d545d;
+	font-size:1.2em;
+}
+
+.advert-meta{
+	display:flex;
+	flex-direction:row;
+	font-size: .7em;
+	text-transform: uppercase;
+	margin-bottom:10px;
+
+	> a{
+		color:#fe5f55;
+	}
+
+	> p{
+		color:#bfbfbf;
+		padding:0px 5px;
+	}
+}
+
+.advert-type{
+	padding:0 5px;
+	padding-left:0;
+	// border-left:2px solid #fe5f55;
+	// border-right:2px solid #fe5f55;
+	color:#818181;
+}
+
+.advert-replies-count{
+	padding: 0px 20px;
+    margin-top: 0px;
+    background-color: #fe5f55;
+    border-radius: 45px;
+    color: white;
+    font-size:.8em;
+    margin-top:5px;
+}
+
+.advert-type-icon i:before{
+	color:#dadada;
+}
+
+.advert-body p{
+	color:#818181;
+	font-size:.8em;
+	font-weight:200;
+	max-width:500px;
+}
+
+.pr-100{
+	padding-right:100px;
+}
