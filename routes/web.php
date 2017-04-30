@@ -24,6 +24,7 @@ Route::get('/adverts/{category}/{advert}', 'AdvertsController@show');
 
 Route::get('/bands', 'BandsController@index');
 Route::post('/bands', 'BandsController@store');
+Route::get('/bands/new', 'BandsController@create');
 Route::get('/bands/{band}', 'BandsController@show');
 Route::get('/bands/{band}/edit', 'BandsController@edit');
 Route::patch('/bands/{band}', 'BandsController@update');

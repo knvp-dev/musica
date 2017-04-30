@@ -13,6 +13,13 @@ class InteractsWithBandTest extends TestCase
 	use DatabaseMigrations;
 
     /** @test */
+    function a_user_can_view_a_band(){
+        $band = create('App\Band');
+        $this->get($band->path())
+            ->assertSee($band->name);
+    }
+
+    /** @test */
     function an_authenticated_user_can_create_a_band(){
     	$this->signIn();
 
@@ -21,6 +28,13 @@ class InteractsWithBandTest extends TestCase
     	$this->post('/bands', $band->toArray());
 
     	$this->assertDatabaseHas('bands', ['owner_id' => auth()->id()]);
+    }
+
+    /** @test */
+    function an_unauthenticated_user_can_not_create_a_band(){
+        $this->withExceptionHandling();
+        $band = make('App\Band');
+        $this->post('/bands', $band->toArray());
     }
 
     /** @test */

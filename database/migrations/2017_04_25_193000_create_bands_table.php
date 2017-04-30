@@ -20,6 +20,8 @@ class CreateBandsTable extends Migration
             $table->unsignedInteger('owner_id');
             $table->unsignedInteger('genre_id');
             $table->string('country');
+            $table->string('cover')->nullable();
+            $table->string('profile_pic')->nullable();
             $table->timestamps();
         });
 

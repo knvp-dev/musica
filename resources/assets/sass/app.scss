@@ -16,14 +16,112 @@
 // Bulma
 @import "node_modules/bulma/css/bulma";
 
-html, body{
+@import 'forms';
+
+.header{
+	height:250px;
+	position:relative;
+}
+
+html, body, #app{
 	height:100%;
 	font-family: 'Montserrat', sans-serif;
 }
 
+.has-white-background-with-padding{
+	max-width:220px;
+	padding:10px;
+	background-color:white;
+}
+
+.profile-pic-wrapper{
+	height: 220px;
+	position: absolute;
+	overflow: hidden;
+	left: calc(50% - 110px);
+	top: 70px;
+	border-radius:30px;
+}
+
+.profile-title{
+	color: #463737;
+	margin-top: 50px!important;
+}
+
+.profile-title h1{
+	font-size: 2em;
+}
+
+.profile-title p{
+	font-size:1em;
+}
+
+.is-uppercase{
+	text-transform:uppercase;
+}
+
+img.profile-picture{
+	height:100%;
+}
+
+.band-member img{
+	width: 100px;
+    height: 100px;
+    padding:20px;
+    opacity: .5;
+}
+
+.band-member-info{
+	align-items: flex-start;
+    display: flex;
+    margin-left: 15px;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.band-member-info h1{
+	font-size: 1em;
+    text-transform: uppercase;
+}
+
+.band-member-info p{
+	color: #9fa5a5;
+}
+
+.has-gradient-background{
+	background: #4568DC;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #B06AB3, #4568DC);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #B06AB3, #4568DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.centered-form{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	flex-direction:column;
+}
+
+.has-dropshadow{
+	-webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
+	-moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
+	box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
+}
+
+.button.is-primary{
+	background-color:#7969c8;
+
+	&:hover{
+		background-color:#716a92;
+	}
+}
+
 .tabs li.is-active a {
-    border-bottom-color: #ff6161;
-    color: #ff6161;
+	border-bottom-color: #ff6161;
+	color: #ff6161;
+}
+
+a{
+	color:#8c69c1;
 }
 
 .input{
@@ -37,8 +135,8 @@ html, body{
 
 .has-band-background{
 	background-image:url('/images/blurred.jpg');
-    background-size: cover;
-    background-position-y: 50%;
+	background-size: cover;
+	background-position-y: 50%;
 }
 
 .button-red{
@@ -61,8 +159,8 @@ html, body{
 
 .hero-body h1.title{
 	font-weight: 600;
-    text-transform: uppercase;
-    color: antiquewhite;
+	text-transform: uppercase;
+	color: antiquewhite;
 }
 
 
@@ -95,7 +193,7 @@ html, body{
 	color:antiquewhite;
 	text-align:center;
 	padding: 10px;
-    margin-left: 0;
+	margin-left: 0;
 }
 
 .flex-horizontal-center{
@@ -175,12 +273,12 @@ html, body{
 
 .advert-replies-count{
 	padding: 0px 20px;
-    margin-top: 0px;
-    background-color: #fe5f55;
-    border-radius: 45px;
-    color: white;
-    font-size:.8em;
-    margin-top:5px;
+	margin-top: 0px;
+	background-color: #fe5f55;
+	border-radius: 45px;
+	color: white;
+	font-size:.8em;
+	margin-top:5px;
 }
 
 .advert-type-icon i:before{
