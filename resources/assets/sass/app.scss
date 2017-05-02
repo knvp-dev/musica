@@ -1,8 +1,8 @@
 
 // Fonts
 @import url(https://fonts.googleapis.com/css?family=Montserrat:200,400);
-
-@import url(/images/icons/font/flaticon.css);
+@import url(https://fonts.googleapis.com/css?family=Righteous);
+@import url(/images/icons/instruments/font/flaticon.css);
 
 // Variables
 @import "variables";
@@ -17,6 +17,55 @@
 @import "node_modules/bulma/css/bulma";
 
 @import 'forms';
+@import 'helpers';
+
+.logo-text{
+	font-size:2em;
+	color:black;
+	font-family: 'Righteous', cursive;
+}
+
+.show-location{
+	color:#a0a0a0;
+}
+
+.show-date{
+	padding:10px;
+	border-right:1px solid #eee;
+}
+
+.show-date-active{
+	background-color:#8c69c1;
+	color:white;
+}
+
+.small-image{
+	width:20px;
+	vertical-align: bottom;
+	margin-right:5px;
+}
+
+.show-list-item{
+	display:flex;
+	align-items:center;
+	justify-content:space-between;
+	padding:20px 10px;
+	border-bottom:1px dashed #eee;
+}
+
+.show-title{
+	margin-right: auto;
+	padding-left:10px;
+}
+
+.nationality-tag{
+	font-size:.8em!important;
+	margin-bottom:5px;
+}
+
+.has-dashed-border-bottom{
+	border-bottom: 1px dashed #eee;
+}
 
 .header{
 	height:250px;
@@ -26,12 +75,6 @@
 html, body, #app{
 	height:100%;
 	font-family: 'Montserrat', sans-serif;
-}
-
-.has-white-background-with-padding{
-	max-width:220px;
-	padding:10px;
-	background-color:white;
 }
 
 .profile-pic-wrapper{
@@ -56,9 +99,7 @@ html, body, #app{
 	font-size:1em;
 }
 
-.is-uppercase{
-	text-transform:uppercase;
-}
+
 
 img.profile-picture{
 	height:100%;
@@ -88,24 +129,11 @@ img.profile-picture{
 	color: #9fa5a5;
 }
 
-.has-gradient-background{
-	background: #4568DC;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #B06AB3, #4568DC);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to right, #B06AB3, #4568DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
+// .band-introduction p{
+// 	max-width:400px;
+// }
 
-.centered-form{
-	display:flex;
-	justify-content:center;
-	align-items:center;
-	flex-direction:column;
-}
 
-.has-dropshadow{
-	-webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
-	-moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
-	box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
-}
 
 .button.is-primary{
 	background-color:#7969c8;
@@ -176,7 +204,7 @@ a{
 }
 
 .hero-form{
-	width:800px;
+	max-width:800px;
 	margin:0 auto;
 }
 
@@ -254,7 +282,7 @@ a{
 	margin-bottom:10px;
 
 	> a{
-		color:#fe5f55;
+		color:#8c69c1;
 	}
 
 	> p{
@@ -274,7 +302,7 @@ a{
 .advert-replies-count{
 	padding: 0px 20px;
 	margin-top: 0px;
-	background-color: #fe5f55;
+	background-color: #8c69c1;
 	border-radius: 45px;
 	color: white;
 	font-size:.8em;
@@ -294,4 +322,30 @@ a{
 
 .pr-100{
 	padding-right:100px;
+}
+
+.sidebar-wrapper{
+	padding-left:20px;
+	border-left: 4px solid #8c69c1;
+}
+
+.sidebar-wrapper h4{
+    font-size: 1.2em;
+    color: #996abc;
+}
+
+.sidebar-wrapper ul{
+	padding:10px;
+}
+
+.sidebar-wrapper li{
+	padding:5px;
+
+	>a{
+		color:#585858;
+	}
+}
+
+.sidebar-section{
+	margin-bottom:20px;
 }

@@ -52,10 +52,13 @@ class RegisterController extends Controller
         });
 
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'username' => 'required|string|max:255|no_spaces',
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'username' => 'required|string|max:255|no_spaces|unique:users',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+        ], [
+            'username.no_spaces' => 'A username cannot contain spaces'
         ]);
     }
 
@@ -68,7 +71,8 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),

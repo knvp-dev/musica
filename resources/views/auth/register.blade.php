@@ -1,76 +1,70 @@
-@extends('layouts.app')
+@extends('layouts.fullscreen')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
-                        {{ csrf_field() }}
+    <div class="has-gradient-background is-full-height centered-form has-text-centered">
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
+        <a href="/" class="is-white in-top-left-corner"><i class="fa fa-arrow-left small-icon"></i> Go back</a>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+        <a href="/" class="logo-text is-white mb-50 mt-50">Bandaid</a>
 
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+        <div class="small-form has-dropshadow">
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+            <form action="{{ route('register') }}" method="post">
+                {{ csrf_field() }}
+                <div class="form-title">
+                    Create an account
                 </div>
-            </div>
+                <div class="field">
+                    <p class="control">
+                        <input class="input" type="text" name="first_name" placeholder="First name" value="{{ old('first_name') }}">
+                    </p>
+                    <p class="help is-danger">{{ $errors->first('first_name') }}</p>
+                </div>
+                <div class="field">
+                    <p class="control">
+                        <input class="input" type="text" name="last_name" placeholder="Last name" value="{{ old('last_name') }}">
+                    </p>
+                    <p class="help is-danger">{{ $errors->first('last_name') }}</p>
+                </div>
+                <div class="field">
+                    <p class="control">
+                        <input class="input" type="text" name="username" placeholder="Username" value="{{ old('username') }}">
+                    </p>
+                    <p class="help is-danger">{{ $errors->first('username') }}</p>
+                </div>
+                <div class="field">
+                    <p class="control">
+                        <input class="input" type="email" name="email" placeholder="Email address" value="{{ old('email') }}">
+                    </p>
+                    <p class="help is-danger">{{ $errors->first('email') }}</p>
+                </div>
+                <div class="field">
+                    <p class="control">
+                        <input class="input" type="password" name="password" placeholder="Password">
+                    </p>
+                    <p class="help is-danger">{{ $errors->first('password') }}</p>
+                </div>
+                <div class="field">
+                    <p class="control">
+                        <input class="input" type="password" name="password_confirmation" placeholder="Password confirmation">
+                    </p>
+                </div>
+
+
+                <div class="field">
+                    <label for="" class="field-label"></label>
+                    <p class="control is-expanded">
+                        <button class="button is-primary is-fullwidth mb-10">
+                            Register
+                        </button>
+                    </p>
+                    <a class="small-link" href="{{ route('login') }}">
+                    Already have an account?
+                </a>
+                </div>
+            </form>
         </div>
     </div>
-</div>
+
+
 @endsection

@@ -1,0 +1,82 @@
+.is-full-height{
+	height:100%;
+}
+
+.in-top-left-corner{
+	position:absolute;
+	top:10px;
+	left:10px;
+}
+
+.small-icon{
+	font-size:.8em;
+	vertical-align:middle;
+	padding:5px;
+}
+
+.pl-10{
+	padding-left:10%;
+}
+
+.pt-10{
+	padding-top:10px;	
+}
+
+.mb-10{
+	margin-bottom:10px;
+}
+
+.mt-50{
+	margin-top:50px;
+}
+
+.small-link{
+	font-size:.8em;
+	color:#6b6a6a;
+}
+
+.is-uppercase{
+	text-transform:uppercase;
+}
+
+.mb-50{
+	margin-bottom:50px;
+}
+
+.is-white{
+	color:white!important;
+}
+
+.has-border-left{
+	border-left:1px solid #eee;
+}
+
+.primary-tag{
+	background-color:#8c69c1;
+	color:white;
+}
+
+.has-white-background-with-padding{
+	max-width:220px;
+	padding:10px;
+	background-color:white;
+}
+
+.has-gradient-background{
+	background: #4568DC;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #B06AB3, #4568DC);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #B06AB3, #4568DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.centered-form{
+	display:flex;
+
+	align-items:center;
+	flex-direction:column;
+}
+
+.has-dropshadow{
+	-webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
+	-moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
+	box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
+}

@@ -2,16 +2,12 @@
 
 @section('content')
 
-@include('partials.heromenu')
-
-
 <div class="container">
 
 	<div class="columns">
 		<div class="column is-3">
 			@include('partials.sidebar')
 		</div>
-		<h1>Adverts</h1>
 		<div class="column is-9">
 			<div class="adverts-list">
 				<div class="advert-list-item">

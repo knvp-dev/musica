@@ -4,8 +4,8 @@
     <header class="nav">
       <div class="container">
         <div class="nav-left">
-          <a class="nav-item">
-            <img src="images/bulma-type-white.png" alt="Logo">
+          <a class="nav-item brand-text">
+            Bandaid
           </a>
         </div>
         <span class="nav-toggle">
