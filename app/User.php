@@ -18,9 +18,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'first_name', 'last_name', 'email', 'password', 'username',
-    ];
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -53,5 +51,11 @@ class User extends Authenticatable
 
     public function fullName(){
         return $this->first_name . " " . $this->last_name;
+    }
+
+    public function activate(){
+        $this->active = 1;
+        $this->token = null;
+        $this->save();
     }
 }

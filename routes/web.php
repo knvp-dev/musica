@@ -13,9 +13,10 @@
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('home');
 
-Route::get('/profiles/{user}', 'ProfilesController@show');
+Route::get('/profiles/{user}', 'ProfilesController@show')->name('profile');
+Route::get('/profiles/{user}/activate/{token}', 'ProfilesController@activate');
 
 Route::get('/adverts', 'AdvertsController@index');
 Route::get('/adverts/new', 'AdvertsController@create');

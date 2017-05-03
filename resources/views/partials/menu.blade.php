@@ -11,14 +11,15 @@
       <span></span>
     </span>
     <div class="nav-right nav-menu">
-      <a class="nav-item is-tab is-hidden-tablet is-active">Home</a>
-      <a class="nav-item is-tab is-hidden-tablet">Features</a>
-      <a class="nav-item is-tab">Pricing</a>
-      <a class="nav-item is-tab">About</a>
-      <a class="nav-item is-tab">
+      <a href="{{ route('home') }}" class="nav-item is-tab">Home</a>
+      @if(! Auth::guest())
+      <a href="{{ route('profile', ['user' => auth()->user()->username ]) }} " class="nav-item is-tab">
         Profile
       </a>
       <a class="nav-item is-tab">Log out</a>
+      @else
+      <a href="{{ route('login') }}" class="nav-item is-tab">Log in</a>
+      @endif
     </div>
   </div>
 </nav>

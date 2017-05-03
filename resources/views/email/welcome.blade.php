@@ -5,8 +5,8 @@ Dear {{ $user['first_name'] }},
 
 Thank you for joining Bandaid!
 
-@component('mail::button', ['url' => ''])
-Start now!
+@component('mail::button', ['url' => 'http://music.dev/profiles/' . {{ $user['username'] .'/activate/' . {{ $data['token'] }}])
+Activate your account!
 @endcomponent
 
 Thanks,<br>

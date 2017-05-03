@@ -8,8 +8,17 @@
 
     <a href="/" class="logo-text is-white mb-50 mt-50">Bandaid</a>
 
-    <div class="small-form has-dropshadow">
+    
 
+    <div class="small-form has-dropshadow">
+        @if (session('status'))
+        <article class="message is-success">
+            <div class="message-body">
+                {{ session('status') }}
+            </div>
+            
+        </article>
+        @endif
         <form action="{{ route('password.email') }}" method="post">
             {{ csrf_field() }}
             <div class="form-title">

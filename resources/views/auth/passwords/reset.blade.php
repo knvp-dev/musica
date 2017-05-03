@@ -8,12 +8,34 @@
 
     <a href="/" class="logo-text is-white mb-50 mt-50">Bandaid</a>
 
+
+
     <div class="small-form has-dropshadow">
 
-        <form action="{{ route('password.request') }}" method="post">
+        @if (session('status'))
+        <article class="message is-success">
+            <div class="message-body">
+                {{ session('status') }}
+            </div>
+            
+        </article>
+        <hr>
+        @endif
+
+        <form action="{{ url('/password/reset') }}" role="form" method="post">
             {{ csrf_field() }}
+
+            <input type="hidden" name="token" value="{{ $token }}">
+
             <div class="form-title">
                 Reset password
+            </div>
+
+            <div class="field">
+                <p class="control">
+                    <input class="input" type="email" name="email" placeholder="Email address">
+                </p>
+                <p class="help is-danger">{{ $errors->first('email') }}</p>
             </div>
             
             <div class="field">
@@ -34,7 +56,7 @@
             <div class="field">
                 <label for="" class="field-label"></label>
                 <p class="control is-expanded">
-                    <button class="button is-primary is-fullwidth mb-10">
+                    <button type="submit" class="button is-primary is-fullwidth mb-10">
                         Reset
                     </button>
                 </p>

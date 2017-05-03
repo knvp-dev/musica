@@ -71,13 +71,18 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $token = bin2hex(openssl_random_pseudo_bytes(16));
+
         return User::create([
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
             'username' => $data['username'],
             'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'token' => $token,
+            'password' => bcrypt($data['password'])
         ]);
+
+        $data['token'] = $token;
 
         \Mail::to($data['email'])->send(new WelcomeMail($data));
     }
