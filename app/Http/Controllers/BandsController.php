@@ -53,6 +53,8 @@ class BandsController extends Controller
             'genre_id' => request('genre_id'),
             'country' => request('country')
         ]);
+
+        return $band;
     }
 
     /**

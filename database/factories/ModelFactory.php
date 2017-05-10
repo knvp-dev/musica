@@ -16,8 +16,9 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
-        'name' => $faker->name,
-        'username' => str_slug($faker->name),
+        'first_name' => $faker->name,
+        'last_name' => $faker->lastname,
+        'username' => $faker->username,
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
@@ -52,7 +53,7 @@ $factory->define(App\Album::class, function (Faker\Generator $faker) {
 $factory->define(App\Song::class, function (Faker\Generator $faker) {
     return [
         'title' => $faker->name,
-        'slug' => str_slug($faker->name),
+        'slug' => str_slug(\Carbon\Carbon::now()->timestamp . '-' . $faker->name),
         'duration' => 234,
         'band_id' => function(){
             return factory('App\Band')->create()->id;
@@ -80,7 +81,7 @@ $factory->define(App\Bandmembership::class, function (Faker\Generator $faker) {
 $factory->define(App\Band::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
-        'slug' => str_slug($faker->name),
+        'slug' => str_slug(\Carbon\Carbon::now()->timestamp . '-' . $faker->name),
         'owner_id' => function(){
             return factory('App\User')->create()->id;
         },

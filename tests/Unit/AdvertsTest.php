@@ -9,9 +9,10 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class AdvertsTest extends TestCase
 {
+	use DatabaseMigrations;
     /** @test */
     function a_user_can_see_all_adverts(){
     	$this->get('/adverts')
-			->assertSee("Adverts");
+			->assertSee("Lorem");
     }
 }

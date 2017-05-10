@@ -15,6 +15,6 @@ class ProfilesTest extends TestCase
     	$user = create('App\User');
 
     	$this->get($user->profilePath())
-    		->assertSee($user->name);
+    		->assertSee($user->first_name);
     }
 }
