@@ -5,7 +5,9 @@ php:
   - hhvm
   
 before_script:
-  - composer install --dev --prefer-source --no-interaction
+  - cp .env.travis .env
   - touch database/database.sqlite
+  - composer install --dev --prefer-source --no-interaction
+  - php artisan key:generate
   
 script: vendor/bin/phpunit
