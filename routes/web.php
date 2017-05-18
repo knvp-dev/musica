@@ -18,6 +18,9 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/profiles/{user}', 'ProfilesController@show')->name('profile');
 Route::get('/profiles/{user}/activate/{token}', 'ProfilesController@activate');
 
+Route::get('/instruments/{user}', 'InstrumentsController@show');
+Route::post('/instruments/{user}/add', 'InstrumentsController@store');
+
 Route::get('/adverts', 'AdvertsController@index');
 Route::get('/adverts/new', 'AdvertsController@create');
 Route::post('/adverts/create', 'AdvertsController@store');

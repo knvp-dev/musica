@@ -45,7 +45,7 @@ class User extends Authenticatable
         return $this->belongsToMany(Instrument::class, 'instrument_user', 'user_id', 'instrument_id');
     }
 
-    public function assignInstrument(Instrument $instrument){
+    public function assignInstrument($instrument){
         $this->instruments()->attach($instrument);
     }
 

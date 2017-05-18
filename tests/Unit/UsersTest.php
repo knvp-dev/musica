@@ -53,4 +53,14 @@ class UsersTest extends TestCase
 
     	$this->assertCount(2, $user->bandMemberships);
     }
+
+    /** @test */
+    function a_user_can_activate_his_account(){
+        $user = create('App\User', ['token' => 'myspecialtoken']);
+
+        $user->activate();
+
+        $this->assertEquals(null, $user->token);
+        $this->assertEquals(1, $user->active);
+    }
 }
