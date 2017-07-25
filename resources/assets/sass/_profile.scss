@@ -1,0 +1,22 @@
+.profile-header{
+    padding:10px;
+    background-color:#8c69c1;
+
+    & h1{
+        color:white;
+        font-size:1.2em;
+        text-transform: uppercase;
+    }
+}
+
+@media(max-width:768px){
+    .flex-space-between{
+        flex-direction: column;
+    }
+    .submenu{
+        flex-direction: column;
+        & a{
+            padding:20px;
+        }
+    }
+}

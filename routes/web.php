@@ -16,6 +16,8 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/profiles/{user}', 'ProfilesController@show')->name('profile');
+Route::get('/profiles/{user}/edit', 'ProfilesController@edit')->name('profiles.edit');
+Route::get('/profiles/{user}/update', 'ProfilesController@update')->name('profiles.update');
 Route::get('/profiles/{user}/activate/{token}', 'ProfilesController@activate');
 
 Route::get('/instruments/{user}', 'InstrumentsController@show');

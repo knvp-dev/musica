@@ -43,11 +43,11 @@ class UsersTest extends TestCase
     	$millencolin = create('App\Band');
     	$deadconvicts = create('App\Band');
 
-        $membership1 = create('App\Bandmembership', 
+        create('App\Bandmembership',
             ['user_id' => $user->id, 'band_id' => $millencolin->id]
         );
 
-        $membership2 = create('App\Bandmembership', 
+        create('App\Bandmembership',
             ['user_id' => $user->id, 'band_id' => $deadconvicts->id]
         );
 

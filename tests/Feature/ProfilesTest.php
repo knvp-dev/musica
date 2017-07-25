@@ -2,44 +2,57 @@
 
 namespace Tests\Feature;
 
+use App\User;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class ProfilesTest extends TestCase
 {
-	use DatabaseMigrations;
+    use DatabaseMigrations;
 
     /** @test */
-    function a_user_has_a_profile(){
+    function a_user_has_a_profile()
+    {
+        $user = create('App\User');
 
-    	$user = create('App\User');
-
-    	$this->get($user->profilePath())
-    		->assertSee($user->first_name);
+        $this->get($user->profilePath())
+            ->assertSee($user->username);
     }
 
     /** @test */
-    function a_user_can_add_an_instrument_to_his_profile(){
-    	$this->signIn();
+    function a_user_can_add_an_instrument_to_his_profile()
+    {
+        $this->signIn();
 
-    	$instrument = create('App\Instrument');
+        $instrument = create('App\Instrument', ['id' => 6]);
 
-    	$this->post('/instruments/' . auth()->user()->username . '/add', $instrument->toArray());
+        $this->post('/instruments/' . auth()->user()->username . '/add', $instrument->toArray());
 
-    	$this->assertEquals(1, auth()->user()->instruments()->count());
-    	$this->assertTrue(auth()->user()->instruments->contains($instrument));
+        $this->assertEquals(1, auth()->user()->instruments()->count());
+        $this->assertTrue(auth()->user()->instruments->contains($instrument));
     }
 
     /** @test */
-    function a_user_can_see_all_his_instruments(){
-    	$this->signIn();
+    function a_user_can_see_all_his_instruments()
+    {
+        $this->signIn();
 
-    	$instrument = create('App\Instrument');
+        $instrument = create('App\Instrument');
 
-    	auth()->user()->assignInstrument($instrument);
+        auth()->user()->assignInstrument($instrument);
 
-    	$this->get('/instruments/' . auth()->user()->username)
-			->assertSee($instrument->name);
+        $this->get('/instruments/' . auth()->user()->username)
+            ->assertSee($instrument->name);
 
+    }
+
+    /** @test */
+    function a_user_can_activate_his_account()
+    {
+        $user = create(User::class, ['token' => 'myToken']);
+
+        $this->get('/profiles/' . $user->username . '/activate/myToken');
+
+        $this->assertTrue(!!$user->fresh()->active);
     }
 }

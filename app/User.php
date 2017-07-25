@@ -42,7 +42,7 @@ class User extends Authenticatable
     }
 
     public function instruments(){
-        return $this->belongsToMany(Instrument::class, 'instrument_user', 'user_id', 'instrument_id');
+        return $this->belongsToMany(Instrument::class, 'instrument_user', 'instrument_id', 'user_id');
     }
 
     public function assignInstrument($instrument){

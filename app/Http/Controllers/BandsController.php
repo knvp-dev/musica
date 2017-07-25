@@ -54,14 +54,15 @@ class BandsController extends Controller
             'country' => request('country')
         ]);
 
-        return $band;
+        return redirect($band->path());
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param Band $band
      * @return \Illuminate\Http\Response
+     * @internal param int $id
      */
     public function show(Band $band)
     {
@@ -94,8 +95,9 @@ class BandsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param Band $band
      * @return \Illuminate\Http\Response
+     * @internal param int $id
      */
     public function destroy(Band $band)
     {

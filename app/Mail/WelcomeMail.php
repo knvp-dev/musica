@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -16,11 +17,12 @@ class WelcomeMail extends Mailable
     /**
      * Create a new message instance.
      *
-     * @return void
+     * @param User $user
+     * @internal param array $data
      */
-    public function __construct(array $data)
+    public function __construct(User $user)
     {
-        $this->user = $data;
+        $this->user = $user;
     }
 
     /**

@@ -73,7 +73,7 @@ class RegisterController extends Controller
     {
         $token = bin2hex(openssl_random_pseudo_bytes(16));
 
-        return User::create([
+        $user = User::create([
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
             'username' => $data['username'],
@@ -82,8 +82,8 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password'])
         ]);
 
-        $data['token'] = $token;
+        \Mail::to($data['email'])->send(new WelcomeMail($user));
 
-        \Mail::to($data['email'])->send(new WelcomeMail($data));
+        return $user;
     }
 }

@@ -30,8 +30,9 @@ class InstrumentsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param User $user
      * @return \Illuminate\Http\Response
+     * @internal param Request $request
      */
     public function store(User $user)
     {
@@ -41,8 +42,9 @@ class InstrumentsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param User $user
      * @return \Illuminate\Http\Response
+     * @internal param int $id
      */
     public function show(User $user)
     {
