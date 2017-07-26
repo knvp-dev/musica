@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\User;
+use Carbon\Carbon;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
@@ -26,10 +27,27 @@ class ProfilesTest extends TestCase
 
         $instrument = create('App\Instrument', ['id' => 6]);
 
-        $this->post('/instruments/' . auth()->user()->username . '/add', $instrument->toArray());
+        $data = ['instrument_id' => $instrument->id, 'playing_since' => Carbon::now()->subMonth()];
+
+        $this->post('/instruments/' . auth()->user()->username . '/add', $data);
 
         $this->assertEquals(1, auth()->user()->instruments()->count());
         $this->assertTrue(auth()->user()->instruments->contains($instrument));
+    }
+
+    /** @test */
+    function a_user_can_remove_an_instrument_from_his_profile(){
+        $this->signIn();
+
+        $instrument = create('App\Instrument', ['id' => 6]);
+
+        auth()->user()->assignInstrument(['instrument_id' => $instrument->id, 'playing_since' => Carbon::now()->subMonth()]);
+
+        $this->delete('/instruments/' . auth()->user()->username . '/remove/' . $instrument->id);
+
+        $this->assertEquals(0, auth()->user()->instruments()->count());
+        $this->assertFalse(auth()->user()->instruments->contains($instrument));
+
     }
 
     /** @test */
@@ -54,5 +72,23 @@ class ProfilesTest extends TestCase
         $this->get('/profiles/' . $user->username . '/activate/myToken');
 
         $this->assertTrue(!!$user->fresh()->active);
+    }
+
+    /** @test */
+    function a_user_cannot_edit_an_other_profile()
+    {
+        $this->signIn();
+
+        $user = create('App\User');
+
+        $this->get('/profiles/' . $user->username . '/edit')->assertStatus(302);
+    }
+
+    /** @test */
+    function a_user_can_edit_his_own_profile()
+    {
+        $this->signIn();
+
+        $this->get('/profiles/' . auth()->user()->username . '/edit')->assertSee(auth()->user()->username);
     }
 }

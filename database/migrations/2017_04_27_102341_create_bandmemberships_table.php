@@ -18,6 +18,8 @@ class CreateBandmembershipsTable extends Migration
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('band_id');
             $table->unsignedInteger('instrument_id');
+            $table->timestamp('join_date')->nullable();
+            $table->timestamp('leave_date')->nullable();
             $table->timestamps();
 
             $table->unique(['user_id', 'band_id', 'instrument_id']);

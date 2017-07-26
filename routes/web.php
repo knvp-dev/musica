@@ -22,6 +22,7 @@ Route::get('/profiles/{user}/activate/{token}', 'ProfilesController@activate');
 
 Route::get('/instruments/{user}', 'InstrumentsController@show');
 Route::post('/instruments/{user}/add', 'InstrumentsController@store');
+Route::delete('/instruments/{user}/remove/{instrument_id}', 'InstrumentsController@destroy');
 
 Route::get('/adverts', 'AdvertsController@index');
 Route::get('/adverts/new', 'AdvertsController@create');

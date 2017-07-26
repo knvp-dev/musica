@@ -74,7 +74,9 @@ $factory->define(App\Bandmembership::class, function (Faker\Generator $faker) {
         },
         'instrument_id' => function(){
             return factory('App\Instrument')->create()->id;
-        }
+        },
+        'join_date' => \Carbon\Carbon::now()->subMonth(),
+        'leave_date' => null
     ];
 });
 

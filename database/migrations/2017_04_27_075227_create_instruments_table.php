@@ -23,8 +23,8 @@ class CreateInstrumentsTable extends Migration
         Schema::create('instrument_user', function (Blueprint $table) {
             $table->unsignedInteger('instrument_id');
             $table->unsignedInteger('user_id');
-            $table->unsignedInteger('skill_level')->default(0);
-            // $table->primary(['instrument_id', 'user_id']);
+            $table->timestamp('playing_since')->nullable();
+            $table->unique(['instrument_id', 'user_id']);
         });
     }
 

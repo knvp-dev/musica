@@ -77,11 +77,13 @@ class InstrumentsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param User $user
+     * @param $instrument_id
      * @return \Illuminate\Http\Response
+     * @internal param int $id
      */
-    public function destroy($id)
+    public function destroy(User $user, $instrument_id)
     {
-        //
+        $user->unassignInstrument($instrument_id);
     }
 }

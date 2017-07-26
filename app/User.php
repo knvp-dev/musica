@@ -9,7 +9,8 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    public function getRouteKeyName(){
+    public function getRouteKeyName()
+    {
         return 'username';
     }
 
@@ -29,31 +30,43 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function profilePath(){
+    public function profilePath()
+    {
         return "/profiles/{$this->username}";
     }
 
-    public function bands(){
+    public function bands()
+    {
         return $this->hasMany(Band::class, 'owner_id');
     }
 
-    public function bandMemberships(){
+    public function bandMemberships()
+    {
         return $this->hasMany(Bandmembership::class);
     }
 
-    public function instruments(){
-        return $this->belongsToMany(Instrument::class, 'instrument_user', 'instrument_id', 'user_id');
+    public function instruments()
+    {
+        return $this->belongsToMany(Instrument::class, 'instrument_user')
+                    ->withPivot('playing_since');
     }
 
-    public function assignInstrument($instrument){
-        $this->instruments()->attach($instrument);
+    public function assignInstrument($instrument)
+    {
+        $this->instruments()->attach($instrument['instrument_id'], ['playing_since' => $instrument['playing_since']]);
     }
 
-    public function fullName(){
+    public function unassignInstrument($instrument_id){
+        $this->instruments()->detach($instrument_id);
+    }
+
+    public function fullName()
+    {
         return $this->first_name . " " . $this->last_name;
     }
 
-    public function activate(){
+    public function activate()
+    {
         $this->active = 1;
         $this->token = null;
         $this->save();

@@ -22,4 +22,8 @@ class Bandmembership extends Model
         return $this->hasOne(Instrument::class, 'id', 'instrument_id');
     }
 
+    public function getLeaveDateAttribute(){
+        return ($this->attributes['leave_date'] == null) ? "Present" : $this->attributes['leave_date'];
+    }
+
 }
